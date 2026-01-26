@@ -1,5 +1,16 @@
+# Terraform
 **/.terraform/*
 *.tfstate
-*.tfstate.backup
-crash.log
+*.tfstate.*
 .terraform.tfstate.lock.info
+crash.log
+
+# Terraform CLI
+terraform.rc
+.terraformrc
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
