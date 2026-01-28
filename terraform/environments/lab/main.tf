@@ -44,10 +44,14 @@ module "datalake_curated" {
 module "data_factory" {
   source = "../../modules/data-factory"
 
-  project_name        = var.project_name
-  environment         = var.environment
-  location            = var.location
-  resource_group_name = module.resource_group.name
+  project_name         = var.project_name
+  environment          = var.environment
+  location             = var.location
+  resource_group_name  = module.resource_group.name
+
+  # 👇 novos parâmetros
+  storage_account_id   = module.storage_account.id
+  storage_account_name = module.storage_account.name
 
   tags = {
     project     = var.project_name
