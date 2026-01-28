@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-module "resource_group" {
-  source = "../../modules/resource-group"
-
-  project_name = var.project_name
-  environment  = var.environment
-  location     = var.location
-}
-=======
 module "resource_group" {
   source = "../../modules/resource-group"
 
@@ -29,7 +20,6 @@ module "storage_account" {
   }
 }
 
-
 module "datalake_raw" {
   source = "../../modules/datalake-filesystem"
 
@@ -50,4 +40,18 @@ module "datalake_curated" {
   name               = "curated"
   storage_account_id = module.storage_account.id
 }
->>>>>>> 3f92bf5 (12h18)
+
+module "data_factory" {
+  source = "../../modules/data-factory"
+
+  project_name        = var.project_name
+  environment         = var.environment
+  location            = var.location
+  resource_group_name = module.resource_group.name
+
+  tags = {
+    project     = var.project_name
+    environment = var.environment
+    managed_by  = "terraform"
+  }
+}
