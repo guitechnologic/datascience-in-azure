@@ -1,0 +1,23 @@
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install base utilities
+  ansible.builtin.apt:
+    name:
+      - curl
+      - wget
+      - git
+      - vim
+      - unzip
+    state: present
+---
+# Atualiza o SO e instala pacotes básicos
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install base packages
+  ansible.builtin.apt:
+    name: "{{ base_packages }}"
+    state: present

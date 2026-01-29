@@ -9,3 +9,14 @@
       ansible.builtin.apt:
         name: docker.io
         state: present
+---
+- name: Configure VM
+  hosts: azure_vms
+  become: yes
+  roles:
+    - common
+
+- name: Install Docker
+  ansible.builtin.apt:
+    name: docker.io
+    state: present

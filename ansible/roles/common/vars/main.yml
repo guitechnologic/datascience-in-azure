@@ -1,0 +1,7 @@
+# Variáveis padrão para a role common
+base_packages:
+  - curl
+  - wget
+  - git
+  - vim
+  - unzip
