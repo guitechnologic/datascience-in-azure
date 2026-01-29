@@ -1,0 +1,66 @@
+# IAC - Terraform & Ansible
+
+## Objetivo
+Este repositório contém templates de Infrastructure as Code (IAC) usando **Terraform** e **Ansible** para provisionar recursos na Azure:
+- Resource Groups
+- Redes (VNet, Subnets)
+- VMs
+- AKS Cluster
+- Role Assignments
+
+## Estrutura do repositório
+
+iac/
+├── terraform/
+│ ├── environments/ # Ambientes dev/lab/prod
+│ └── modules/ # Módulos reutilizáveis: vm, network, aks-cluster, iam, resource-group
+└── ansible/
+├── inventories/ # Inventários por ambiente
+├── playbooks/ # Playbooks de provisionamento e deploy
+└── roles/ # Roles Ansible (common)
+
+
+## Pré-requisitos
+- Conta Azure com permissão para criar recursos.
+- Terraform >= 1.5
+- Ansible >= 2.15
+- Azure CLI logado (`az login`)
+- Chave SSH pública para VMs
+
+## Terraform
+### Inicializar
+```bash
+cd terraform/environments/dev
+terraform init
+Planejar
+terraform plan -var-file=terraform.tfvars
+Aplicar
+terraform apply -var-file=terraform.tfvars
+Destruir
+terraform destroy -var-file=terraform.tfvars
+Ansible
+Executar playbook de configuração
+ansible-playbook -i inventories/dev.ini playbooks/configure_vm.yml
+Executar playbook de deploy Docker
+ansible-playbook -i inventories/dev.ini playbooks/install_docker.yml
+Módulos Terraform
+resource-group: Cria Resource Group
+
+network: Cria VNet e subnets
+
+vm: Cria VMs
+
+aks-cluster: Cria AKS Cluster
+
+iam: Faz atribuição de roles
+
+Variáveis
+Cada ambiente tem terraform.tfvars com parâmetros específicos
+
+Ex: nome do RG, subnets, VMs, AKS
+
+Outputs
+Todos os outputs importantes são definidos em outputs.tf de cada ambiente
+
+
+---

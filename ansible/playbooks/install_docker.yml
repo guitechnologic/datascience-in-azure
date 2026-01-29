@@ -1,0 +1,14 @@
+# Caminho: ansible/playbooks/install_docker.yml
+# Playbook específico para instalar Docker em VMs
+- name: Install Docker on Azure VMs
+  hosts: azure_vms
+  become: yes
+  tasks:
+    - name: Update APT cache
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install Docker
+      ansible.builtin.apt:
+        name: docker.io
+        state: present

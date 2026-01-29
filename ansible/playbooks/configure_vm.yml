@@ -1,0 +1,9 @@
+# Caminho: ansible/playbooks/configure_vm.yml
+# Playbook para configurar VMs básicas (atualização e pacotes)
+- name: Configure VM with basic utilities
+  hosts: azure_vms
+  become: yes
+  roles:
+    - common
+
+# Caso queira instalar algo específico depois, adicione tasks aqui
