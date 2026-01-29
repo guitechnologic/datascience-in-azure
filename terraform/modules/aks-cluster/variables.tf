@@ -1,14 +1,8 @@
-variable "project_name" {
-  description = "Nome do projeto"
-  type        = string
-}
-
-variable "environment" {
-  description = "Ambiente (lab, dev, prod)"
-  type        = string
-}
-
-variable "location" {
-  description = "Região Azure"
-  type        = string
-}
+variable "name" { type = string }
+variable "location" { type = string }
+variable "resource_group_name" { type = string }
+variable "dns_prefix" { type = string }
+variable "k8s_version" { type = string }
+variable "node_count" { type = number }
+variable "vm_size" { type = string }
+variable "tags" { type = map(string) default = {} }

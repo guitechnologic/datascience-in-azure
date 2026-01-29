@@ -1,0 +1,11 @@
+- name: Deploy application to VM
+  hosts: azure_vm1
+  become: yes
+  tasks:
+    - name: Update APT packages
+      ansible.builtin.apt:
+        update_cache: yes
+    - name: Install Docker
+      ansible.builtin.apt:
+        name: docker.io
+        state: present

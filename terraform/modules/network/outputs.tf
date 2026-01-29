@@ -1,3 +1,2 @@
-output "name" {
-  value = azurerm_storage_data_lake_gen2_filesystem.this.name
-}
+output "vnet_id" { value = azurerm_virtual_network.this.id }
+output "subnet_ids" { value = [for s in azurerm_subnet.this : s.id] }

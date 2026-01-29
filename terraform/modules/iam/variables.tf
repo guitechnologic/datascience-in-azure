@@ -1,14 +1,14 @@
-variable "project_name" {
-  description = "Nome do projeto"
+variable "scope_id" {
   type        = string
+  description = "Scope ID for role assignment (RG, Subscription, Resource)"
 }
 
-variable "environment" {
-  description = "Ambiente (lab, dev, prod)"
+variable "role_name" {
   type        = string
+  description = "Role name, e.g., Contributor, Owner"
 }
 
-variable "resource_group_id" {
-  description = "ID do Resource Group onde o SP terá permissão"
+variable "principal_id" {
   type        = string
+  description = "Principal ID to assign the role (User, SPN, Managed Identity)"
 }

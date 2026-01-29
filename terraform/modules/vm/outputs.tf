@@ -1,11 +1,3 @@
-output "name" {
-  value = azurerm_data_factory.this.name
-}
-
-output "id" {
-  value = azurerm_data_factory.this.id
-}
-
-output "principal_id" {
-  value = azurerm_data_factory.this.identity[0].principal_id
-}
+output "vm_id" { value = azurerm_virtual_machine.this.id }
+output "vm_name" { value = azurerm_virtual_machine.this.name }
+output "nic_id" { value = azurerm_network_interface.this.id }

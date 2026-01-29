@@ -1,0 +1,6 @@
+all:
+  hosts:
+    azure_vm1:
+      ansible_host: 10.0.1.4
+      ansible_user: azureuser
+      ansible_password: ChangeMe123!
