@@ -1,11 +1,11 @@
 output "name" {
-  value = azurerm_resource_group.this.name
+  value = azurerm_storage_account.this.name
 }
 
-output "location" {
-  value = azurerm_resource_group.this.location
+output "primary_blob_endpoint" {
+  value = azurerm_storage_account.this.primary_blob_endpoint
 }
 
 output "id" {
-  value = azurerm_resource_group.this.id
+  value = azurerm_storage_account.this.id
 }

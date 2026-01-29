@@ -19,6 +19,16 @@ variable "resource_group_name" {
 }
 
 variable "tags" {
-  type        = map(string)
-  default     = {}
+  type    = map(string)
+  default = {}
+}
+
+variable "storage_account_name" {
+  description = "Nome do Storage Account (Data Lake)"
+  type        = string
+}
+
+variable "storage_account_id" {
+  description = "ID do Storage Account (Data Lake)"
+  type        = string
 }
